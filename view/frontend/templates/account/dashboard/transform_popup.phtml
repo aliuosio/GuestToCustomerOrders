@@ -1,0 +1,32 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+/** @var Osio\GuestToCustomerOrders\Block\Account\Dashboard\TransformPopup $block */
+?>
+<?php // if ($block->showPop()):?>
+<div id="tp_html">
+    <p>
+        <?php
+        printf(
+    __('%s, We have already processed guest orders at this email address %s in the past.
+             Would you like us to add this to the order history of your customer account?'),
+    ucfirst($block->getGreeting()),
+    $block->getLoadedCustomer()->getEmail()
+);
+        ?>
+    </p>
+    <p>
+        <a href="<?= $block->escapeUrl($block->getUrl('customer/account', ['transform' => 'false'])) ?>">
+            <button class="btn">
+                <?php /* @escapeNotVerified */ echo __('No') ?>
+            </button>
+        </a>
+        <a href="<?= $block->escapeUrl($block->getUrl('sales/order/history', ['transform' => 'true'])) ?>">
+            <button class="btn">
+                <?php /* @escapeNotVerified */ echo __('Yes') ?>
+            </button>
+        </a>
+    </p>
+</div>
+<?php // endif;?>
