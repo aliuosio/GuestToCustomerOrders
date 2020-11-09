@@ -35,7 +35,7 @@ class Data extends AbstractHelper
         return $this->isModuleEnabled(self::IS_MODULE_ENABLED);
     }
 
-    public function getConfig($config_path, $scopeCode = null): array
+    public function getConfig($config_path, $scopeCode = null)
     {
         return $this->scopeConfig->getValue(
             $config_path,

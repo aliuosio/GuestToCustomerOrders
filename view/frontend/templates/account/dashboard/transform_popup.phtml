@@ -4,29 +4,53 @@
 
 /** @var Osio\GuestToCustomerOrders\Block\Account\Dashboard\TransformPopup $block */
 ?>
-<?php // if ($block->showPop()):?>
-<div id="tp_html">
-    <p>
-        <?php
-        printf(
+<?php if ($block->showPop()):?>
+    <div class="callfor-popup">
+        <p>
+            <?php
+            printf(
     __('%s, We have already processed guest orders at this email address %s in the past.
-             Would you like us to add this to the order history of your customer account?'),
+                 Would you like us to add this to the order history of your customer account?'),
     ucfirst($block->getGreeting()),
     $block->getLoadedCustomer()->getEmail()
 );
-        ?>
-    </p>
-    <p>
-        <a href="<?= $block->escapeUrl($block->getUrl('customer/account', ['transform' => 'false'])) ?>">
-            <button class="btn">
-                <?php /* @escapeNotVerified */ echo __('No') ?>
-            </button>
-        </a>
-        <a href="<?= $block->escapeUrl($block->getUrl('sales/order/history', ['transform' => 'true'])) ?>">
-            <button class="btn">
-                <?php /* @escapeNotVerified */ echo __('Yes') ?>
-            </button>
-        </a>
-    </p>
-</div>
-<?php // endif;?>
+            ?>
+        </p>
+        <p>
+            <a href="<?= $block->escapeUrl($block->getUrl('customer/account', ['transform' => 'false'])) ?>">
+                <button class="btn">
+                    <?php /* @escapeNotVerified */ echo __('No') ?>
+                </button>
+            </a>
+            <a href="<?= $block->escapeUrl($block->getUrl('sales/order/history', ['transform' => 'true'])) ?>">
+                <button class="btn">
+                    <?php /* @escapeNotVerified */ echo __('Yes') ?>
+                </button>
+            </a>
+        </p>
+    </div>
+<?php endif;?>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function (
+            $,
+            modal
+        ) {
+            var modaloption = {
+                type: 'popup',
+                modalClass: 'modal-popup',
+                responsive: true,
+                innerScroll: true,
+                clickableOverlay: true,
+                title: 'Simple Modal'
+            };
+            var callforoption = modal(modaloption, $('.callfor-popup'));
+            $('.callfor-popup').modal('openModal');
+        }
+    );
+</script>
