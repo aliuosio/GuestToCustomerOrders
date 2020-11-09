@@ -1,18 +1,21 @@
 {
-  "name": "osio/guesttocustomerorders",
-  "description": "Ask Customer after Registration to assign Guest Orders with his E-Mail Address to his account",
-  "type": "magento2-module",
-  "license": "proprietary",
-  "autoload": {
-    "files": [
-      "registration.php"
-    ],
-    "psr-4": {
-      "Osio\\GuestToCustomerOrders\\": "/"
+    "name": "osio/guesttocustomerorders",
+    "description": "Ask Customer after Registration to assign Guest Orders with his E-Mail Address to his account",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "require": {
+        "php": "~7.4.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Osio\\GuestToCustomerOrders\\": "/"
+        }
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "discard-changes": true
     }
-  },
-  "minimum-stability": "dev",
-  "config": {
-    "discard-changes": true
-  }
 }
