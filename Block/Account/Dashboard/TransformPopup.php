@@ -89,6 +89,6 @@ class TransformPopup extends Template
 
     private function getLove(): string
     {
-        return ($this->getLoadedCustomer()->getPrefix() == 'Mr.') ? __('Lieber') : __('Liebe');
+        return ($this->getLoadedCustomer()->getPrefix() == 'Mr.') ? __('Dear') : __('Dearest');
     }
 }
