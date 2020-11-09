@@ -76,7 +76,7 @@ class TransformPopup extends Template
             $customer = $this->getLoadedCustomer()->setCustomAttribute('asked_transform_guest_orders', 1);
             return $this->customerRepository->save($customer);
         } catch (Exception $e) {
-            $this->helper->log()->error($e->getMessage());
+            $this->helper->log($e);
         }
 
         return false;

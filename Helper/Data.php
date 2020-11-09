@@ -27,12 +27,15 @@ class Data extends AbstractHelper
         $this->log->error(get_class($e) . ': ' . $e->getMessage());
     }
 
-    public function isEnabled()
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
     {
         return $this->isModuleEnabled(self::IS_MODULE_ENABLED);
     }
 
-    public function getConfig($config_path, $scopeCode = null)
+    public function getConfig($config_path, $scopeCode = null): array
     {
         return $this->scopeConfig->getValue(
             $config_path,

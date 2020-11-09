@@ -2,23 +2,23 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="aliuosio" sortOrder="0">
+        <tab id="osio" translate="label" sortOrder="1000">
             <label>Osio</label>
         </tab>
-        <section id="gtco" translate="label" type="text" sortOrder="1013" showInDefault="1"
-                 showInWebsite="1"
-                 showInStore="1">
-            <tab>Osio</tab>
-            <label>Guest To Customer Orders</label>
+        <section id="gotc" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
+            <label>Guest To Customer Orders</label>
+            <tab>osio</tab>
             <resource>Osio_GuestToCustomerOrders::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
                    showInStore="1">
-                <label>Configuration</label>
-                <comment><![CDATA[Enable Guest Orders transformaion to registered Customer]]></comment>
-                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+                <comment><![CDATA[Ask Customer after Registration to assign Guest Orders with his E-Mail Address to his account]]></comment>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
                     <label>Enable</label>
+                    <config_path>yotpo/general/enable</config_path>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
