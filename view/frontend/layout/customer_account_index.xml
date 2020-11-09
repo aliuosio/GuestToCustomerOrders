@@ -7,7 +7,7 @@
                    cacheable="false"
                    name="show_transform_popup"
                    template="Osio_GuestToCustomerOrders::account/dashboard/transform_popup.phtml"
-                   before="-"
+                   after="-"
             />
         </referenceContainer>
     </body>

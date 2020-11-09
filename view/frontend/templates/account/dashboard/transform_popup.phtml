@@ -4,8 +4,9 @@
 
 /** @var Osio\GuestToCustomerOrders\Block\Account\Dashboard\TransformPopup $block */
 ?>
-<?php if ($block->showPop()):?>
-    <div class="callfor-popup">
+
+<?php if ($block->showPop()): ?>
+    <div id="popup-notice">
         <p>
             <?php
             printf(
@@ -29,7 +30,7 @@
             </a>
         </p>
     </div>
-<?php endif;?>
+<?php endif; ?>
 
 <script>
     require(
@@ -46,11 +47,18 @@
                 modalClass: 'modal-popup',
                 responsive: true,
                 innerScroll: true,
-                clickableOverlay: true,
-                title: 'Simple Modal'
+                clickableOverlay: true
             };
-            var callforoption = modal(modaloption, $('.callfor-popup'));
-            $('.callfor-popup').modal('openModal');
+            var callforoption = modal(modaloption, $('#popup-notice'));
+            $('#popup-notice').modal('openModal');
         }
     );
 </script>
+<style type="text/css">
+    .modal-slide .action-close, .modal-header, .modal-footer {
+        display: none;
+    }
+    #popup-notice {
+        margin-top: 3rem;
+    }
+</style>

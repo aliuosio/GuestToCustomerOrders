@@ -27,9 +27,6 @@ class Data extends AbstractHelper
         $this->log->error(get_class($e) . ': ' . $e->getMessage());
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->isModuleEnabled(self::IS_MODULE_ENABLED);
@@ -48,5 +45,4 @@ class Data extends AbstractHelper
     {
         return (bool)$this->getConfig($path, $scopeCode);
     }
-
 }
