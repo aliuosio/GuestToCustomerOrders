@@ -65,13 +65,13 @@ class History
     private function canTransform(): bool
     {
         return (
-            (bool)$this->subject->getRequest()->getParam('transform')
+            $this->subject->getRequest()->getParam('transform') == 'true'
             &&
-            $this->customer->getCustomAttribute('was_guest')->getValue()
+            (null !== $this->customer->getCustomAttribute('was_guest') && $this->customer->getCustomAttribute('was_guest')->getValue())
             &&
-            $this->customer->getCustomAttribute('asked_transform_guest_orders')->getValue()
+            (null !== $this->customer->getCustomAttribute('asked_transform_guest_orders') && $this->customer->getCustomAttribute('asked_transform_guest_orders')->getValue()
             &&
-            !$this->customer->getCustomAttribute('guest_orders_transformed')->getValue()
+            (null !== $this->customer->getCustomAttribute('guest_orders_transformed') && !$this->customer->getCustomAttribute('guest_orders_transformed')->getValue())
         );
     }
 
